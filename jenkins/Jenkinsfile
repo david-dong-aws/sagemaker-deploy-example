@@ -16,6 +16,7 @@ pipeline {
           cd deploy
           python deploy.py --config_file ${CONFIG_FILE_NAME}
           echo "Deploy completed."
+          '''
         }
       }
     }
