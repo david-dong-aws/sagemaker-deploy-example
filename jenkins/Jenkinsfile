@@ -13,8 +13,8 @@ pipeline {
       steps {
         withAWS(credentials:"${AWS_CREDENTIAL}") {
           sh '''
+          export AWS_DEFAULT_REGION=${AWS_REGION}
           cd deploy
-          python3 --version
           python3 deploy.py --config_file ${CONFIG_FILE_NAME}
           echo "Deploy completed."
           '''
