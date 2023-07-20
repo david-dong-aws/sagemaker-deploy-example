@@ -10,6 +10,7 @@ if (awsCredentialId == null) {
 
 // Sagemaker specific details
 def configFileName = "config.yaml"
+def awsRegion = 'us-east-1'
 
 // Get git details used in JOB DSL so that can be used for pipeline SCM also
 def jobName = getBinding().getVariables()['JOB_NAME']
@@ -20,11 +21,12 @@ def job = (AbstractProject)jenkins.getItem(jobName)
 def remoteSCM = job.getScm()
 def credentialsId = remoteSCM.getUserRemoteConfigs()[0].getCredentialsId()
 
-pipelineJob(pipelineName) {
+pipelineJob("sagemaker-deploy-example") {
     description("Sagemaker Deploy Endpoint Pipeline")
     keepDependencies(false)
     parameters {
         stringParam("CONFIG_FILE_NAME", configFileName, "Name of the configuration file for the endpoint")
+        stringParam("AWS_REGION", awsRegion, "Region where project is created")
         credentialsParam("AWS_CREDENTIAL") {
             description("AWS credentials to use for creating entity")
             defaultValue(awsCredentialId)
