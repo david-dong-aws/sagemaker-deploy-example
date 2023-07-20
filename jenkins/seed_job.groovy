@@ -10,6 +10,7 @@ if (awsCredentialId == null) {
 
 // Sagemaker specific details
 def configFileName = "config.yaml"
+def projectName = "example-project"
 
 // Get git details used in JOB DSL so that can be used for pipeline SCM also
 def jobName = getBinding().getVariables()['JOB_NAME']
@@ -25,6 +26,7 @@ pipelineJob("sagemaker-deploy-example") {
     keepDependencies(false)
     parameters {
         stringParam("CONFIG_FILE_NAME", configFileName, "Name of the configuration file for the endpoint")
+        stringParam("PROJECT_NAME", projectName, "Name of the project for env setup")
         credentialsParam("AWS_CREDENTIAL") {
             description("AWS credentials to use for creating entity")
             defaultValue(awsCredentialId)
