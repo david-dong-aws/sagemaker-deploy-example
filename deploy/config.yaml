@@ -1,0 +1,29 @@
+# EXAMPLE MODEL CONFIG
+
+region: "us-east-1"
+# Model name will appear in the Model section of SageMaker console. No underscore
+model_name: "DEMO-mlops-jenkins"
+# Name of the endpoint. No underscore
+endpoint_name: "DEMO-mlops-jenkins"
+# Docker image for inference
+image_uri: "683313688378.dkr.ecr.us-east-1.amazonaws.com/sagemaker-xgboost:0.90-1-cpu-py3"
+# Location of the trained models. need to be tar'd and sent to s3
+model_data_uri: "s3://sagemaker-us-east-1-008438682196.s3-us-east-1.amazonaws.com/sagemaker/DEMO-ModelMonitor/xgb-churn-prediction-model.tar.gz"
+# Source directory that contains the entrypoint code inference.py and requirements.txt
+source_dir: "../src"
+# SM execution role
+sagemaker_role: "arn:aws:iam::008438682196:role/service-role/AmazonSageMaker-ExecutionRole-20221219T163483"
+# Instance type of the inference endpoint
+instance_type: "ml.m5.large"
+# Instance count of the inference endpoint
+instance_count: 1
+# Bucket name for output during model inference
+output_bucket: "sagemaker-us-east-1-008438682196"
+# VPC settings
+vpc_config:
+  # Subnet ID. Example: subnet-ef9be9a3
+  subnets:
+      - null
+  # Security groups ID. Example: vpc-ac3a8fc7
+  security_groups:
+      - null
