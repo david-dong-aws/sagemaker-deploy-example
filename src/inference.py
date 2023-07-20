@@ -40,7 +40,7 @@ def predict_fn(input_data, model):
 
     """
 
-    return "Placeholder prediction: 1234"
+    return {"prediction": 12345}
 
 
 def output_fn(predictions, content_type):
