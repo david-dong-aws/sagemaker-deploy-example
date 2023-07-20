@@ -20,7 +20,7 @@ def job = (AbstractProject)jenkins.getItem(jobName)
 def remoteSCM = job.getScm()
 def credentialsId = remoteSCM.getUserRemoteConfigs()[0].getCredentialsId()
 
-pipelineJob(pipelineName) {
+pipelineJob("sagemaker-deploy-example") {
     description("Sagemaker Deploy Endpoint Pipeline")
     keepDependencies(false)
     parameters {
