@@ -8,7 +8,7 @@ endpoint_name: "DEMO-mlops-jenkins"
 # Docker image for inference
 image_uri: "683313688378.dkr.ecr.us-east-1.amazonaws.com/sagemaker-xgboost:0.90-1-cpu-py3"
 # Location of the trained models. need to be tar'd and sent to s3
-model_data_uri: "s3://sagemaker-us-east-1-008438682196.s3-us-east-1.amazonaws.com/sagemaker/DEMO-ModelMonitor/xgb-churn-prediction-model.tar.gz"
+model_data_uri: "s3://sagemaker-us-east-1-008438682196/sagemaker/DEMO-ModelMonitor/xgb-churn-prediction-model.tar.gz"
 # Source directory that contains the entrypoint code inference.py and requirements.txt
 source_dir: "../src"
 # SM execution role
