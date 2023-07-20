@@ -40,7 +40,7 @@ def predict_fn(input_data, model):
 
     """
 
-    return {"prediction": 123453434}
+    return {"prediction": 123453433434}
 
 
 def output_fn(predictions, content_type):
